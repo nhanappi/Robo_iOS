@@ -15,9 +15,9 @@
 
 @implementation MainViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         // Custom initialization
     }
@@ -29,7 +29,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    XLCycleScrollView *csView = [[XLCycleScrollView alloc] initWithFrame:self.view.bounds];
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    NSLog(@"aaaa: %f, %f, %f, %f",bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
+    XLCycleScrollView *csView = [[XLCycleScrollView alloc] initWithFrame:bounds];
     csView.delegate = self;
     csView.datasource = self;
     [self.view addSubview:csView];
@@ -48,12 +50,18 @@
 }
 
 - (UIView *)pageAtIndex:(NSInteger)index
-{
+{    
     UILabel *l = [[UILabel alloc] initWithFrame:self.view.bounds];
-    l.text = [NSString stringWithFormat:@"%d",index];
-    l.font = [UIFont systemFontOfSize:72];
-    l.textAlignment = NSTextAlignmentCenter;
-    l.backgroundColor = [UIColor clearColor];
+    
+    UILabel* contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 250, l.bounds.size.height)];
+    contentLabel.numberOfLines  = 0;
+    contentLabel.font = [UIFont systemFontOfSize:12];
+    contentLabel.textAlignment = NSTextAlignmentLeft;
+    contentLabel.backgroundColor = [UIColor clearColor];
+    contentLabel.text = FISRT_SCEEN_TEXT;
+    
+   	[l addSubview:contentLabel];
+    
     return l;
 }
 

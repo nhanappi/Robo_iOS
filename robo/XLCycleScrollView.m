@@ -24,10 +24,12 @@
         [self addSubview:_scrollView];
         
         CGRect rect = self.bounds;
-        rect.origin.y = rect.size.height - 30;
+        rect.origin.y = rect.size.height - 40;
+        NSLog(@"abc: %f", rect.origin.y);
         rect.size.height = 30;
         _pageControl = [[UIPageControl alloc] initWithFrame:rect];
         _pageControl.userInteractionEnabled = NO;
+        _pageControl.backgroundColor = [UIColor blueColor];
         
         [self addSubview:_pageControl];
         
