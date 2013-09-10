@@ -43,6 +43,7 @@
 
 - (NSInteger)numberOfPages
 {
+    NSLog(@"numberOfPages");
     return 5;
 }
 
