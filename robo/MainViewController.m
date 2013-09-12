@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     NSLog(@"viewDidLoad");
+    NSLog(@"add for test");
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
